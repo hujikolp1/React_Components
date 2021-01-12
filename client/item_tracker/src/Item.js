@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Item({ 
+export default function ToDoItem({ 
   article, 
   onClickToggle, 
   onClickRemove }) { 
@@ -21,9 +21,7 @@ export default function Item({
         >
           &#10007;
         </a>
-        <p style={{ display: article.display }}>
-          {article.details}
-        </p>
+        <p style={{ display: article.display }}>{article.details}</p>
       </li>
   );
 }

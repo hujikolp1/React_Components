@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.mainToDoComp{
+  display: flex; 
+  justify-content: center;
+  background-color: rgba(88, 104, 179, 0.555);
+}

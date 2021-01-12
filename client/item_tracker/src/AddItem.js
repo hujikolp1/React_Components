@@ -11,17 +11,9 @@ export default function AddArticle({
   return (
     <section>
       <h1>{name}</h1>
-      <input 
-        placeholder="Title" 
-        value={title} 
-        onChange={onChangeTitle} 
-      />
+      <input placeholder="Title" value={title} onChange={onChangeTitle} />
       <br></br>
-      <input 
-        placeholder="Details" 
-        value={details} 
-        onChange={onChangedetails} 
-      />
+      <input placeholder="details" value={details} onChange={onChangedetails} />
       <br></br>
       <button onClick={onClickAdd}>Add</button>
     </section>

@@ -19,7 +19,7 @@ const App = () => {
           onClickAdd
         }) => (
         <AddItem
-          name="Add Item"
+          name="Articles"
           title={title}
           details={details}
           onChangeTitle={onChangeTitle}

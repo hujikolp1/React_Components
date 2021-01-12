@@ -12,22 +12,28 @@ export default function ToDo({ addArticle, articleList }) {
   const [articles, setArticles] = useState([
     {
       id: id.next(),
-      title: "Item 1",
-      details: "Item 1 details",
+      title: "Article 1",
+      details: "Article 1 details",
       display: "none"
     },
     {
       id: id.next(),
-      title: "Item 2",
-      details: "Item 2 details",
+      title: "Article 2",
+      details: "Article 2 details",
       display: "none"
     },
     {
       id: id.next(),
-      title: "Item 3",
-      details: "Item 3 details",
+      title: "Article 3",
+      details: "Article 3 details",
       display: "none"
     },
+    {
+      id: id.next(),
+      title: "Article 4",
+      details: "Article 4 details",
+      display: "none"
+    }
   ]);
 
   const [title, setTitle] = useState("");
@@ -72,22 +78,19 @@ export default function ToDo({ addArticle, articleList }) {
   }
 
   return (
-    <div className="mainToDoComp">
-      <section>
-        {addArticle({
-          title,
-          details,
-          onChangeTitle,
-          onChangedetails,
-          onClickAdd
-        })}
-        {articleList({ 
-          articles, 
-          onClickToggle, 
-          onClickRemove 
-        })}
-      </section>
-    </div>
-
+    <section>
+      {addArticle({
+        title,
+        details,
+        onChangeTitle,
+        onChangedetails,
+        onClickAdd
+      })}
+      {articleList({ 
+        articles, 
+        onClickToggle, 
+        onClickRemove 
+      })}
+    </section>
   );
 }
