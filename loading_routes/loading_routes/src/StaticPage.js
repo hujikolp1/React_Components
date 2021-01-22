@@ -8,7 +8,7 @@ const StaticPage = ({  }) => {
     return(
         <div>
             <p>
-            This is STATIC 
+            Waiting for component dependencies to load
             </p>
         </div>
     )

@@ -12,6 +12,15 @@ function App() {
 
     useEffect( ()=>{
 
+      const mockAPI = () => {
+        setTimeout( ()=>{
+          setLoading(false);
+          setUser(true);
+
+        }, 3000)
+      }
+      mockAPI(); 
+
       return () => {
         console.log("cleanup")
       }
@@ -19,26 +28,20 @@ function App() {
 
   return (
     <Fragment>
-      <div>
-        Load This Always
-      </div>
-      <Router>
-
+      { loading && !user && <StaticPage></StaticPage> }
+      <LoadedRoute loading={loading} user={user}>
+        <InfoPage />
+      </LoadedRoute >
+      {/* <Router>
         <UserContext.Provider value={{}}>
 
           <Switch>
-            <Route exact path="/staticPage" component={StaticPage}/>
-
-            <LoadedRoute exact path='/infoPage' loading={loading} user={user} onFailureRedirectToPath="/">
-              <InfoPage />
-            </LoadedRoute >
-          
+            <Route exact path="/staticPage" component={StaticPage} onFailureRedirectToPath="/"/>  
           </Switch> 
 
         </UserContext.Provider>
-
-      </Router>
-      <nav>
+      </Router> */}
+      {/* <nav>
         <ul>
           <li>
             <link to='/staticPage'>
@@ -46,7 +49,8 @@ function App() {
             </link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
+
     </Fragment>
 
   );
