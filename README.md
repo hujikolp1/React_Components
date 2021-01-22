@@ -1,4 +1,4 @@
 # React Repo of Reusable Code and Components 
 
-## Components Include
-1) todo_item_list
+## Components That I Find Useful
+### See each repo for more info, how to install and run, and how to reuse 
