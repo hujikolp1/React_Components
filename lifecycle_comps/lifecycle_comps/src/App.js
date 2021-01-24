@@ -1,15 +1,18 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import ItemContainer from './ItemContainer'; 
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={"#"} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <React.Fragment>
+      <h1>Lifecycle</h1>
+      <React.Fragment>
+        <ItemContainer></ItemContainer>
+      </React.Fragment> 
+    </React.Fragment>
+
   );
 }
 
