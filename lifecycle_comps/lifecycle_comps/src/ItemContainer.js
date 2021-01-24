@@ -9,36 +9,48 @@ const onClickCancel = e => {
 };
 
 export default class ItemContainer extends Component {
+
   state = {
     error: null,
     loading: "...",
     user: []
   };
 
-  componentDidMount() {
-    this.api = user();
+  getData = async () => {
+    this.randomUserName = await user();
+  }
 
-    this.api
+  componentDidMount() {
+
+    this.randomUserName = this.getData(); 
+    this.randomUserName
     .then(
       res => {
-        this.setState({ loading: null, error: null, user: res });
-        console.log("User >>> ", res); 
-      }
-    )
+      this.setState({ loading: null, error: null, user: res });
+      console.log("User Data >>> ", res); 
+    })
     .catch( (err)=>{
-      this.setState({ loading: null, error: err });
+      this.setState({ loading: null, error: err.message });
       console.log("User failure >>> ", err); 
     })
 
-    
   }
 
   componentWillUnmount() {
-    this.api.cancel();
+    // this.randomUserName.cancel();
   }
 
   render() {
-    return <Item onClickCancel={onClickCancel} {...this.state} />;
+    return (
+      <div>
+        <Item onClickCancel={onClickCancel} {...this.state} />
+        <div>
+          Random User: <br></br>
+            {this.state.user ? this.state.user: "loading..."}
+        </div>
+      </div>
+
+    );
   }
 
 

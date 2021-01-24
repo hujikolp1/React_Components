@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const InfoPage = ({  }) => {
+const InfoPage = ({ axiosData }) => {
     useEffect(() => {
         console.log("SetUp Render")
     }, []);
@@ -8,7 +8,10 @@ const InfoPage = ({  }) => {
     return(
         <div>
             <p>
-            This is only shown when loading is done
+                This is only shown when loading is done
+            </p>
+            <p>
+                Random User: {axiosData}
             </p>
         </div>
     )
