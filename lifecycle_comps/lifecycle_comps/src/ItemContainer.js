@@ -17,6 +17,24 @@ export default class ItemContainer extends Component {
   };
 
 
+  tripleEqual(arr_1, arr_2) {
+    return arr_1 === arr_2;
+  }
+  
+  doubleEqual(arr_1, arr_2) {
+    for (let i = 0; i < arr_1.length; i++) {
+      if (arr_1[i] !== arr_2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  //===========================
+  // Life Cycle Functions
+  //===========================
+  
+
   componentDidMount() {
     // pass true to user to reject promise 
     let tempArr = []; 
@@ -39,7 +57,7 @@ export default class ItemContainer extends Component {
   }
 
   componentWillUnmount() {
-    // this.userList.cancel();
+    this.userList.cancel();
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -47,6 +65,14 @@ export default class ItemContainer extends Component {
       ...state,
       loading: state.userList.length === 0 ? props.loading : "finished"
     };
+  }
+
+  shouldComponentUpdate(props, state) {
+    if (this.tripleEqual(this.state.userList, state.userList)) {
+      return this.doubleEqual(this.state.userList, state.userList);
+    }
+
+    return true;
   }
 
   //--------------------------------------
