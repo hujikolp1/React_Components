@@ -48,7 +48,7 @@ export default class ItemContainer extends Component {
         console.log("===============> ", val)
         tempArr.push(val.id)
       }
-      this.setState({ loading: null, error: null, userList: tempArr });
+      this.setState({ loading: null, error: "none", userList: tempArr });
     }).catch( (err)=>{
 
     })
@@ -71,13 +71,8 @@ export default class ItemContainer extends Component {
     if (this.tripleEqual(this.state.userList, state.userList)) {
       return this.doubleEqual(this.state.userList, state.userList);
     }
-
     return true;
   }
-
-  //--------------------------------------
-  // All other Lifecycle funcs for classes
-  //--------------------------------------
 
   render() {
     return (

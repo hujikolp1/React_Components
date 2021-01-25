@@ -12,5 +12,6 @@ export default class ButtonContainer extends Component {
 }
 
 ButtonContainer.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
+  text: "blank"
 };
