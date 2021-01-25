@@ -9,15 +9,18 @@ const Cancel = ({ loading, onClick }) =>
     </a>
   ) : null;
 
-export default ({ error, loading, user, onClickCancel }) => (
+
+export default ({ error, loading, userList, onClickCancel }) => (
   <div>
-    <Error error={error} />
-    <Loading loading={loading} />
+    <strong><span><u>Item: </u></span></strong> <br></br>
+    Error: <Error error={error} /> <br></br>
+    Loading: <Loading loading={loading} />
     <ul>
-      {/* {user.map(i => (
+      {/* {userList.map(i => (
         <li key={i.id}>{i.name}</li>
       ))} */}
-      {user}
+      
+     
     </ul>
     <Cancel loading={loading} onClick={onClickCancel} />
   </div>

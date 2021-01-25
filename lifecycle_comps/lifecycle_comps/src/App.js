@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
 import ItemContainer from './ItemContainer'; 
+import Bound from './Bound'; 
  
 
 function App() {
   return (
     <React.Fragment>
 
-      <h1>Lifecycle</h1>
+      <h1>Lifecycle App</h1>
       
-      <React.Fragment>
-        <ItemContainer></ItemContainer>
-      </React.Fragment> 
+      <Bound>
+        <ItemContainer loading="App loading ... "></ItemContainer>
+      </Bound> 
 
     </React.Fragment>
 
