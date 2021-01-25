@@ -20,4 +20,9 @@
 7) componentWillUnmount() <br> 
 - called before a component is removed <br> 
 
-
+## Check for errors with lifecycle functions
+```
+  componentDidCatch(error) {
+    this.setState({ error });
+  }
+```

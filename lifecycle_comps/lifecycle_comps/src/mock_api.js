@@ -15,7 +15,9 @@ export function user(stop) {
           let userList = [
             { id: 0, name: "one" },
             { id: 1, name: "two" },
-            { id: 2, name: "three" }
+            { id: 2, name: "three" },
+            { id: 3, name: "four" },
+            { id: 4, name: "five" },
           ];
           console.log("in mock_api Promise > userList > ", userList , " typeof ", typeof userList); 
           resolve(userList);   

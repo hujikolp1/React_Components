@@ -14,12 +14,17 @@ export default class Button extends Component {
 
   render() {
     return (
-      <button
-        onClick={this.props.onClick}
-        ref={button => {
-          this.button = button;
-        }}
-      />
+
+        <React.Fragment>
+            <h3>---</h3>
+            <button
+                onClick={this.props.onClick}
+                ref={button => {
+                this.button = button;
+                }}
+            />
+        </React.Fragment>
     );
   }
+
 }

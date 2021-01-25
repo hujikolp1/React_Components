@@ -19,29 +19,21 @@ export default class ItemContainer extends Component {
 
   componentDidMount() {
     // pass true to user to reject promise 
-    let tempArr = [1,2,3,4,5]; 
+    let tempArr = []; 
     let asyncAPI = async () => {
       return await user();
     }
     let userList = asyncAPI(); 
     userList.then( (res)=>{
       console.log("RES: ", res , " typeof ", typeof res);
+      for(let val of res){
+        console.log("===============> ", val)
+        tempArr.push(val.id)
+      }
       this.setState({ loading: null, error: null, userList: tempArr });
     }).catch( (err)=>{
 
     })
-    // userList
-    // .then( res => {
-    //   // for(let i=0;i<Object.keys(res).length;i++){
-    //   //   tempArr.push(res[i]);
-    //   //   console.log("res[i] >>> ", res[i], " typeof ", typeof res[i]);
-    //   // }
-
-    // })
-    // .catch( err=>{
-    //   this.setState({ loading: null, error: err.message });
-    //   console.log("User failure >>> ", err); 
-    // })
 
 
   }
