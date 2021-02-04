@@ -13,45 +13,81 @@ export default class ItemContainer extends Component {
   state = {
     error: null,
     loading: "...",
-    user: []
+    userList: []
   };
 
-  getData = async () => {
-    this.randomUserName = await user();
+
+  tripleEqual(arr_1, arr_2) {
+    return arr_1 === arr_2;
+  }
+  
+  doubleEqual(arr_1, arr_2) {
+    for (let i = 0; i < arr_1.length; i++) {
+      if (arr_1[i] !== arr_2[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
-  componentDidMount() {
+  //===========================
+  // Life Cycle Functions
+  //===========================
+  
 
-    this.randomUserName = this.getData(); 
-    this.randomUserName
-    .then(
-      res => {
-      this.setState({ loading: null, error: null, user: res });
-      console.log("User Data >>> ", res); 
+  componentDidMount() {
+    // pass true to user to reject promise 
+    let tempArr = []; 
+    let asyncAPI = async () => {
+      return await user();
+    }
+    let userList = asyncAPI(); 
+    userList.then( (res)=>{
+      console.log("RES: ", res , " typeof ", typeof res);
+      for(let val of res){
+        console.log("===============> ", val)
+        tempArr.push(val.id)
+      }
+      this.setState({ loading: null, error: "none", userList: tempArr });
+    }).catch( (err)=>{
+
     })
-    .catch( (err)=>{
-      this.setState({ loading: null, error: err.message });
-      console.log("User failure >>> ", err); 
-    })
+
 
   }
 
   componentWillUnmount() {
-    // this.randomUserName.cancel();
+    this.userList.cancel();
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return {
+      ...state,
+      loading: state.userList.length === 0 ? props.loading : "finished"
+    };
+  }
+
+  shouldComponentUpdate(props, state) {
+    if (this.tripleEqual(this.state.userList, state.userList)) {
+      return this.doubleEqual(this.state.userList, state.userList);
+    }
+    return true;
   }
 
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <h2><span>Item Container</span></h2>
+        User List: {this.state.userList} 
         <Item onClickCancel={onClickCancel} {...this.state} />
-        <div>
-          Random User: <br></br>
-            {this.state.user ? this.state.user: "loading..."}
-        </div>
-      </div>
+      </React.Fragment>
 
     );
   }
 
 
 }
+
+ItemContainer.defaultProps = {
+  loading: "loading..."
+};
