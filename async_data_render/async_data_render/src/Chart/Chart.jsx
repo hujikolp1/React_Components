@@ -15,7 +15,7 @@ import {
 
 
 
-const Chart = (props) => {
+const Chart = (asyncData) => {
 
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
@@ -34,7 +34,7 @@ const Chart = (props) => {
 
   const data = [
     {
-      name: "API data", uv: 4000, female: 2400, male: 2400,
+      name: "API data", uv: 4000, female: asyncData.asyncData, male: 2400,
     },
   ];
 

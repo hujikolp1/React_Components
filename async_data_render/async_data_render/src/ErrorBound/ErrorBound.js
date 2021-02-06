@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {
@@ -9,7 +9,7 @@ function ErrorBound({ loading, asyncData, ...rest }) {
 
   return loading 
     ? (<Loading><CircularProgress size={100} /></Loading>) 
-    : ( asyncData ? <Route {...rest}/> : <div>failed to get data</div> )
+    : ( asyncData ? <Fragment {...rest}/> : <div>failed to get data</div> )
 
 }
 
