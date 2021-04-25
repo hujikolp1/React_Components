@@ -3,7 +3,10 @@ import './App.css';
 import { render as renderJSX } from "react-dom";
 import AnyProps from './PropComps/AnyProps';
 import TypeProps from './PropComps/TypeProps'; 
-import CustomProps from './PropComps/CustomProps'
+import CustomProps from './PropComps/CustomProps';
+import SpecificProps from './PropComps/SpecificProps';
+import SpecificValueProps from './PropComps/SpecificValueProps';
+
 
 const validProps = {
   myString: "abcdefg",
@@ -45,7 +48,13 @@ function App() {
         {/* <TypeProps label='type props' className='type_props' {...invalidProps} />  */}
       </section>
       <section>
-        <CustomProps  myArray={["first", "second", "third"]} myNumber={99} />
+        <CustomProps  myArray={[]} myNumber={99} />
+      </section>
+      <section>
+        <SpecificProps myDate="now" myCount={false} myUsers={[1, 2, 3]} /> 
+      </section>
+      <section>
+        <SpecificValueProps user={{ name: "Harold", age: 30, online: true }} /> 
       </section>
 
     </div>
