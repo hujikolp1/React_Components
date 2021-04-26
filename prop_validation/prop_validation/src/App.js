@@ -6,6 +6,8 @@ import TypeProps from './PropComps/TypeProps';
 import CustomProps from './PropComps/CustomProps';
 import SpecificProps from './PropComps/SpecificProps';
 import SpecificValueProps from './PropComps/SpecificValueProps';
+import RequiredProps from './PropComps/RequiredProps';
+
 
 
 const validProps = {
@@ -26,6 +28,14 @@ const invalidProps = {
   myObject: { '0': 0 }
 };
 
+const missingProp = {
+  myString: "My String",
+  myNumber: 100,
+  myBool: true,
+  myFunc: () => "My Return Value",
+  myArray: ["One", "Two", "Three"]
+};
+
 
 function render(props) {
   renderJSX(<TypeProps {...props} />, document.getElementById("root"));
@@ -37,11 +47,7 @@ function App() {
     <div className="App">
       <h1>Prop Validation In React</h1>
       <section>
-        <AnyProps
-          label='any props'
-          max={36}
-          value={12}
-        />
+        <AnyProps label='any props' max={36} value={12} />
       </section>
       <section>
         <TypeProps label='type props' className='type_props' {...validProps} />
@@ -55,6 +61,9 @@ function App() {
       </section>
       <section>
         <SpecificValueProps user={{ name: "Harold", age: 30, online: true }} /> 
+      </section>
+      <section>
+        <RequiredProps {...missingProp} />
       </section>
 
     </div>
