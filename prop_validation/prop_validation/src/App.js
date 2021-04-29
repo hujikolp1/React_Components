@@ -37,8 +37,8 @@ const missingProp = {
   myArray: ["One", "Two", "Three"]
 };
 
-const myHeader = <h1>My Header</h1>;
-const myContent = <p>My Content</p>;
+const myHeader = <h1>Header</h1>;
+const myContent = <p>Content</p>;
 
 
 function render(props) {
@@ -71,8 +71,8 @@ function App() {
       </section>
       <section>
         <ElementNode {...{ myHeader, myContent }} />
-        <ElementNode myHeader="My Header" {...{ myContent }} />
-        <ElementNode {...{ myHeader }} myContent="My Content" />
+        <ElementNode myHeader="Header" {...{ myContent }} />
+        <ElementNode {...{ myHeader }} myContent="Content" />
         <ElementNode
           {...{ myHeader }}
           myContent={[myContent, myContent, myContent]}
