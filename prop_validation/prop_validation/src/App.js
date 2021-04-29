@@ -7,6 +7,7 @@ import CustomProps from './PropComps/CustomProps';
 import SpecificProps from './PropComps/SpecificProps';
 import SpecificValueProps from './PropComps/SpecificValueProps';
 import RequiredProps from './PropComps/RequiredProps';
+import ElementNode from './PropComps/ElementNode'; 
 
 
 
@@ -35,6 +36,9 @@ const missingProp = {
   myFunc: () => "My Return Value",
   myArray: ["One", "Two", "Three"]
 };
+
+const myHeader = <h1>My Header</h1>;
+const myContent = <p>My Content</p>;
 
 
 function render(props) {
@@ -65,6 +69,16 @@ function App() {
       <section>
         <RequiredProps {...missingProp} />
       </section>
+      <section>
+        <ElementNode {...{ myHeader, myContent }} />
+        <ElementNode myHeader="My Header" {...{ myContent }} />
+        <ElementNode {...{ myHeader }} myContent="My Content" />
+        <ElementNode
+          {...{ myHeader }}
+          myContent={[myContent, myContent, myContent]}
+        />
+      </section>
+
 
     </div>
   );
