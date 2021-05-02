@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function GroupMain() {
-  return <p>Group content...</p>;
+  return <p>Group Main...</p>;
 }

@@ -8,6 +8,8 @@ import UserHeader from "./Users/UserHeader";
 import UserMain from "./Users/UserMain";
 import GroupHeader from "./Groups/GroupHeader";
 import GroupMain from "./Groups/GroupMain";
+import UserSContainer from "./IdComps/UserSContainer";
+import UserContainer from "./IdComps/UserContainer";
 
 function App() {
   return (
@@ -68,6 +70,13 @@ function App() {
           <Route exact path="/Groups" component={GroupMain} />
         </main>
       </section>
+    </Router>
+
+    <Router>
+      <Fragment>
+        <Route exact path="/" component={UserSContainer} />
+        <Route path="/users/:id" component={UserContainer} />
+      </Fragment>
     </Router>
     </div>
   );
