@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Users from "./Users";
+import UserS from "./UserS";
 import { fetchUsers } from "./api";
 
 export default function UsersContainer() {
@@ -11,5 +11,5 @@ export default function UsersContainer() {
     });
   }, []);
 
-  return <Users users={users} />;
+  return <UserS users={users} />;
 }

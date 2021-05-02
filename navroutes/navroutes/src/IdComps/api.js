@@ -1,6 +1,6 @@
 const users = [
-    { first: "First 1", last: "Last 1", age: 1 },
-    { first: "First 2", last: "Last 2", age: 2 }
+    { first: "User 1", last: "one", age: 1 },
+    { first: "User 2", last: "two", age: 2 }
   ];
   
   export function fetchUsers() {
