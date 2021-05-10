@@ -11,11 +11,15 @@ const MyFeature = lazy(() =>
   ]).then(([m]) => m)
 );
 
+const MyOtherFeature = lazy(() => import("./MyOtherFeature"));
+
+
 export default function MyPage() {
   return (
     <Fragment>
       <h1>My Page</h1>
       <MyFeature />
+      <MyOtherFeature /> 
     </Fragment>
   );
 }
