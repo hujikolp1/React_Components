@@ -35,9 +35,13 @@ export default function App() {
     });
   }, []);
 
+  const FirstComponent = lazy(() => import("./FirstComponent"));
+
   return (
     <div>
-      <MyComponent />
+      <Suspense fallback={"loading..."}>
+        <FirstComponent />
+      </Suspense>
 
       <Router>
         <section>
@@ -57,7 +61,7 @@ export default function App() {
           </section>
         </section>
       </Router>
-      
+
     </div>
   )
 }
