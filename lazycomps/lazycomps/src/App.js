@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense, lazy, Fragment } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FadeLoader } from "react-spinners";
 import MyPage from "./MyPage";
+import OtherPage from "./OtherPage"; 
 
 const First = lazy(() =>
   Promise.all([
@@ -81,6 +82,10 @@ export default function App() {
           </section>
         </section>
       </Router>
+
+      <Suspense fallback={<FadeLoader color={"lightblue"} size={150} />}>
+        <OtherPage />
+      </Suspense>
 
       <Fragment>
         <label>
