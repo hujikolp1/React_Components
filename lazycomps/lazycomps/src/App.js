@@ -6,7 +6,7 @@ export default function App() {
   const [MyComponent, setMyComponent] = useState(() => () => null);
 
   useEffect(() => {
-    import("./MyComponent").then(module => {
+    import("./FirstComponent").then(module => {
       setMyComponent(() => module.default);
     });
   }, []);

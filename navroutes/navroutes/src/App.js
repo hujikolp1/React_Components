@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Link, NavLink, Redirect } from "react-router-dom";
+
 import First from "./Components/First";
 import Second from "./Components/Second";
 import UserHeader from "./Users/UserHeader";
@@ -11,7 +13,31 @@ import GroupMain from "./Groups/GroupMain";
 import UserSContainer from "./IdComps/UserSContainer";
 import UserContainer from "./IdComps/UserContainer";
 
-function App() {
+App.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+const param = "From Param";
+const query = new URLSearchParams({ msg: "From Query" });
+
+App.defaultProps = {
+  children: (
+    <section>
+      <Router> 
+        <p>
+          <Link to={`echo/${param}`}>Echo param</Link>
+        </p>
+        <p>
+          <Link to={`echo?${query.toString()}`} query={query}>
+            Echo query
+          </Link>
+        </p>
+      </Router>
+    </section>
+  )
+};
+
+function App( {children} ) {
   return (
     <div className="App">
 
@@ -78,8 +104,11 @@ function App() {
         <Route path="/users/:id" component={UserContainer} />
       </Fragment>
     </Router>
+
+    <section><text>children </text>{children}</section>
     </div>
   );
 }
 
 export default App;
+
