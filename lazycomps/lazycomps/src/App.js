@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FadeLoader } from "react-spinners";
+import MyPage from "./MyPage";
 
 const First = lazy(() =>
   Promise.all([
@@ -41,6 +42,10 @@ export default function App() {
     <div>
       <Suspense fallback={"loading..."}>
         <FirstComponent />
+      </Suspense>
+
+      <Suspense fallback={"loading..."}>
+        <MyPage />
       </Suspense>
 
       <Router>
