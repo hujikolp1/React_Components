@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   const increment = () => {
     setCount(count + 1);
@@ -15,8 +15,8 @@ function App() {
   return (
     <>
       <p>{count}</p>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <button onClick={increment}>MORE</button>
+      <button onClick={decrement}>LESS</button>
     </>
   );
 }
