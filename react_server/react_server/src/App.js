@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Home from './Home';
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Home name="display comp name" />;
       <p>{count}</p>
       <button onClick={increment}>MORE</button>
       <button onClick={decrement}>LESS</button>
