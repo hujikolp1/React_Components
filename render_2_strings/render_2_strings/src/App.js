@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react'; 
+import PropTypes from 'prop-types'; 
 
-function App() {
+function App({items}) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <text>Render 2 Strings</text>
+      
+      <ul>
+        {items.map(item => {
+          return <li key={item}>{item}</li>
+        })}
+      </ul>
     </div>
   );
 }
-
+App.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired
+}
 export default App;
