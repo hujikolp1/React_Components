@@ -1,8 +1,18 @@
 import "typeface-roboto";
-import React from "react";
+
+import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
+import Checkbox from "@material-ui/core/Checkbox";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+
+
 
 const headerFooterStyle = {
   padding: 16,
@@ -15,8 +25,12 @@ const mainStyle = {
 const navStyle = { marginLeft: 5 };
 
 export default function App() {
+  const [checkbox, setCheckbox] = useState(false);
+  const [radio, setRadio] = useState("First");
+
   return (
     <div style={{ flexGrow: 1 }}>
+
       <Grid container spacing={5}>
         <Grid item xs={12}>
           <Paper style={headerFooterStyle}>
@@ -71,6 +85,30 @@ export default function App() {
           </Paper>
         </Grid>
       </Grid>
+
+      <div>
+        <FormControlLabel
+          label={`Checkbox ${checkbox ? "(checked)" : ""}`}
+          control={
+            <Checkbox
+              checked={checkbox}
+              onChange={() => setCheckbox(!checkbox)}
+            />
+          }
+        />
+        <br></br>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">{radio}</FormLabel>
+          <RadioGroup value={radio} onChange={e => setRadio(e.target.value)}>
+            <FormControlLabel value="First" label="First" control={<Radio />} />
+            <FormControlLabel value="Second" label="Second" control={<Radio />} />
+            <FormControlLabel value="Third" label="Third" control={<Radio />} />
+          </RadioGroup>
+        </FormControl>
+      </div>
+
+      
+
     </div>
   );
 }
