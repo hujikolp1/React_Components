@@ -59,6 +59,8 @@ export default function App() {
   const [checkbox, setCheckbox] = useState(false);
   const [radio, setRadio] = useState("First");
 
+  const buttonClasses = useButtonStyles();
+
   return (
     <div style={{ flexGrow: 1 }}>
 
@@ -145,6 +147,16 @@ export default function App() {
           <MenuItem>Third Item</MenuItem>
         </Menu>
       </ThemeProvider> */}
+
+      <React.Fragment>
+        <Button classes={buttonClasses}>First</Button>
+        <Button classes={buttonClasses} variant="contained">
+          Second
+        </Button>
+        <Button classes={buttonClasses} size="small" variant="outlined">
+          Third
+        </Button>
+      </React.Fragment>
 
     </div>
   );
