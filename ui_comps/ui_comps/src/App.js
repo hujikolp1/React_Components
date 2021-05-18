@@ -34,6 +34,10 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+import FormGroup from "@material-ui/core/FormGroup";
+import TextInput from "./TextInput";
+import Selector from "./Selector";
+
 const headerFooterStyle = {
   padding: 16,
   textAlign: "center"
@@ -288,6 +292,10 @@ export default function App({links}) {
         </Button>
       </React.Fragment>
 
+      <FormGroup style={{ width: 200, margin: 10 }}>
+        <TextInput />
+        <Selector />
+      </FormGroup>
 
     </div>
   );
