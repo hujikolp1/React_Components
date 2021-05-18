@@ -48,7 +48,7 @@ const uitheme = createMuiTheme({
   }
 });
 
-const useButtonStyles = makeStyles(theme => ({
+const makeButtonStyles = makeStyles(theme => ({
   root: { margin: theme.spacing(1) },
   contained: { borderRadius: theme.shape.borderRadius + 2 },
   sizeSmall: { fontWeight: theme.typography.fontWeightLight }
@@ -59,7 +59,7 @@ export default function App() {
   const [checkbox, setCheckbox] = useState(false);
   const [radio, setRadio] = useState("First");
 
-  const buttonClasses = useButtonStyles();
+  const buttonStyles = makeButtonStyles();
 
   return (
     <div style={{ flexGrow: 1 }}>
@@ -149,11 +149,11 @@ export default function App() {
       </ThemeProvider> */}
 
       <React.Fragment>
-        <Button classes={buttonClasses}>First</Button>
-        <Button classes={buttonClasses} variant="contained">
+        <Button classes={buttonStyles}>First</Button>
+        <Button classes={buttonStyles} variant="contained">
           Second
         </Button>
-        <Button classes={buttonClasses} size="small" variant="outlined">
+        <Button classes={buttonStyles} size="small" variant="outlined">
           Third
         </Button>
       </React.Fragment>
