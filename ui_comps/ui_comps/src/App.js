@@ -40,6 +40,9 @@ import Selector from "./Selector";
 
 import Container from "@material-ui/core/Container";
 
+import IconButton from "@material-ui/core/IconButton";
+import AndroidIcon from "@material-ui/icons/Android";
+
 const headerFooterStyle = {
   padding: 16,
   textAlign: "center"
@@ -84,6 +87,12 @@ function TabContainer({ value }) {
   );
 }
 
+const buttonMargin = { margin: 10 };
+
+const toggleColor = (setter, value) => {
+  setter(value === "default" ? "primary" : "default");
+}
+
 // ----------- Main App -----------
 
 export default function App({links}) {
@@ -91,6 +100,10 @@ export default function App({links}) {
   const [radio, setRadio] = useState("First");
   const [open, setOpen] = useState(false);
 
+  const [contained, setContained] = useState("default");
+  const [text, setText] = useState("default");
+  const [outlined, setOutlined] = useState("default");
+  const [icon, setIcon] = useState("default");
 
   const buttonStyles = makeButtonStyles();
 
@@ -315,6 +328,47 @@ export default function App({links}) {
           <Typography style={textStyle}>lg LARGE</Typography>
         </Container>
       </React.Fragment>
+
+      <Grid container>
+        <Grid
+          item
+          component={Button}
+          variant="contained"
+          style={buttonMargin}
+          color={contained}
+          onClick={() => toggleColor(setContained, contained)}
+        >
+          Contained
+        </Grid>
+        <Grid
+          item
+          component={Button}
+          style={buttonMargin}
+          color={text}
+          onClick={() => toggleColor(setText, text)}
+        >
+          Text
+        </Grid>
+        <Grid
+          item
+          component={Button}
+          variant="outlined"
+          style={buttonMargin}
+          color={outlined}
+          onClick={() => toggleColor(setOutlined, outlined)}
+        >
+          Outlined
+        </Grid>
+        <Grid
+          item
+          component={IconButton}
+          style={buttonMargin}
+          color={icon}
+          onClick={() => toggleColor(setIcon, icon)}
+        >
+          <AndroidIcon />
+        </Grid>
+      </Grid>
 
     </div>
   );
