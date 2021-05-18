@@ -23,11 +23,27 @@ const headerFooterStyle = {
   padding: 16,
   textAlign: "center"
 };
+
 const mainStyle = {
   padding: 32,
   textAlign: "center"
 };
+
 const navStyle = { marginLeft: 5 };
+
+const uitheme = createMuiTheme({
+  typography: {
+    fontSize: 11
+  },
+  overrides: {
+    MuiMenuItem: {
+      root: {
+        marginLeft: 15,
+        marginRight: 15
+      }
+    }
+  }
+});
 
 export default function App() {
   const [checkbox, setCheckbox] = useState(false);
@@ -112,7 +128,13 @@ export default function App() {
         </FormControl>
       </div>
 
-      
+      <ThemeProvider theme={uitheme}>
+        <Menu anchorEl={document} open={true}>
+          <MenuItem>First Item</MenuItem>
+          <MenuItem>Second Item</MenuItem>
+          <MenuItem>Third Item</MenuItem>
+        </Menu>
+      </ThemeProvider>
 
     </div>
   );
