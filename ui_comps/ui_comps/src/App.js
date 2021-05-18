@@ -17,6 +17,9 @@ import { ThemeProvider } from "@material-ui/styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+
 
 
 const headerFooterStyle = {
@@ -44,6 +47,13 @@ const uitheme = createMuiTheme({
     }
   }
 });
+
+const useButtonStyles = makeStyles(theme => ({
+  root: { margin: theme.spacing(1) },
+  contained: { borderRadius: theme.shape.borderRadius + 2 },
+  sizeSmall: { fontWeight: theme.typography.fontWeightLight }
+}));
+
 
 export default function App() {
   const [checkbox, setCheckbox] = useState(false);
@@ -128,13 +138,13 @@ export default function App() {
         </FormControl>
       </div>
 
-      <ThemeProvider theme={uitheme}>
+      {/* <ThemeProvider theme={uitheme}>
         <Menu anchorEl={document} open={true}>
           <MenuItem>First Item</MenuItem>
           <MenuItem>Second Item</MenuItem>
           <MenuItem>Third Item</MenuItem>
         </Menu>
-      </ThemeProvider>
+      </ThemeProvider> */}
 
     </div>
   );
