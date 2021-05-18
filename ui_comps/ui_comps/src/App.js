@@ -30,6 +30,10 @@ import First from "./First";
 import Second from "./Second";
 import Third from "./Third";
 
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+
 const headerFooterStyle = {
   padding: 16,
   textAlign: "center"
@@ -62,6 +66,20 @@ const makeButtonStyles = makeStyles(theme => ({
   sizeSmall: { fontWeight: theme.typography.fontWeightLight }
 }));
 
+function TabContainer({ value }) {
+  return (
+    <AppBar position="static">
+      <Tabs value={value}>
+        <Tab label="Item One" component={Link} to="/" />
+        <Tab label="Item Two" component={Link} to="/page2" />
+        <Tab label="Item Three" component={Link} to="/page3" />
+      </Tabs>
+    </AppBar>
+  );
+}
+
+// ----------- Main App -----------
+
 export default function App({links}) {
   const [checkbox, setCheckbox] = useState(false);
   const [radio, setRadio] = useState("First");
@@ -78,8 +96,63 @@ export default function App({links}) {
     setOpen(!open);
   }
 
+  const tabContentStyle = {
+    padding: 16
+  };
+
+  TabContainer = ({ value }) => {
+    return (
+      <AppBar position="static">
+        <Tabs value={value}>
+          <Tab label="Item One" component={Link} to="/" />
+          <Tab label="Item Two" component={Link} to="/page2" />
+          <Tab label="Item Three" component={Link} to="/page3" />
+        </Tabs>
+      </AppBar>
+    );
+  }
+
   return (
     <div style={{ flexGrow: 1 }}>
+
+    <Router>
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <React.Fragment>
+            <TabContainer value={0} />
+            <Typography component="div" style={tabContentStyle}>
+              Item One
+            </Typography>
+          </React.Fragment>
+        )}
+      />
+      <Route
+        exact
+        path="/page2"
+        render={() => (
+          <React.Fragment>
+            <TabContainer value={1} />
+            <Typography component="div" style={tabContentStyle}>
+              Item Two
+            </Typography>
+          </React.Fragment>
+        )}
+      />
+      <Route
+        exact
+        path="/page3"
+        render={() => (
+          <React.Fragment>
+            <TabContainer value={2} />
+            <Typography component="div" style={tabContentStyle}>
+              Item Three
+            </Typography>
+          </React.Fragment>
+        )}
+      />
+    </Router>
 
       <Router>
         <Button onClick={toggleDrawer}>Open Nav</Button>
