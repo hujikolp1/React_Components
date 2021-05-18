@@ -38,6 +38,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import TextInput from "./TextInput";
 import Selector from "./Selector";
 
+import Container from "@material-ui/core/Container";
+
 const headerFooterStyle = {
   padding: 16,
   textAlign: "center"
@@ -96,7 +98,6 @@ export default function App({links}) {
     if (type === "keydown" && (key === "Tab" || key === "Shift")) {
       return;
     }
-  
     setOpen(!open);
   }
 
@@ -115,6 +116,12 @@ export default function App({links}) {
       </AppBar>
     );
   }
+
+  const textStyle = {
+    backgroundColor: "#cfe8fc",
+    margin: 5,
+    textAlign: "center"
+  };
 
   return (
     <div style={{ flexGrow: 1 }}>
@@ -296,6 +303,18 @@ export default function App({links}) {
         <TextInput />
         <Selector />
       </FormGroup>
+
+      <React.Fragment>
+        <Container maxWidth="sm">
+          <Typography style={textStyle}>sm SMALL</Typography>
+        </Container>
+        <Container maxWidth="md">
+          <Typography style={textStyle}>md MEDIUM</Typography>
+        </Container>
+        <Container maxWidth="lg">
+          <Typography style={textStyle}>lg LARGE</Typography>
+        </Container>
+      </React.Fragment>
 
     </div>
   );
