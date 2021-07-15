@@ -1,6 +1,6 @@
-# React Repo of Reusable Code and Components 
+# React Repo of Components 
 
-## Components That I Find Useful
+##
 ### See each repo for more info, how to install and run, and how to reuse 
 
 ### To get your TypeScript App initialized run: <br> 
