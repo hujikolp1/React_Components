@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8" /> 
         <title>Old School React</title>
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
 
-        <body>
-            This is how they used to do it!
+        <script>
+            function init() {
+                const root = 
+                    React.createElement("div", {},
+                        React.createElement("h1", {}, "Header"),
+                        React.createElement("ul", {}, 
+                        React.createElement("li", {},
+                            React.createElement("h2", {}, "Wave Particle"),
+                            React.createElement("a",
+                                {href: "https://www.haroldulrich.dev"},
+                                "Wave Particle website link"
+                            )
+                        ),
+                        )
+                    ); 
+                ReactDOM.render(root,
+                    document.getElementById("main")
+                );
+            }
+        </script>
+
+
+        <body onload="init();">
+            <h3>Old school tech is still pretty sweet!</h3>
+            <div id="main"></div>
         </body>
     </head>
+
 </html>
