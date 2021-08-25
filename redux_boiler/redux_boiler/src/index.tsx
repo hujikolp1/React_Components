@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* pass 'store' as prop into Provider */}
     <Provider store={store}>
       <App />
     </Provider>
