@@ -57,7 +57,9 @@ export default class ItemContainer extends Component {
   }
 
   componentWillUnmount() {
-    this.userList.cancel();
+    if(!!this.userList){
+      this.userList.cancel();
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
