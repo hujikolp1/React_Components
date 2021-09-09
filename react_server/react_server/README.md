@@ -1,6 +1,19 @@
 # Render From Server
 ### `node src/server/index.js`
 
+```
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div>Rendering to the server creates a fast initial load. This lets search engines crawl your HTML page faster. Also, you can initially load important code first while the rest is on the way.</div>
+  }
+};
+
+ReactDOMServer.renderToString(<App/>)
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
