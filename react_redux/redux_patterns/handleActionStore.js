@@ -1,19 +1,19 @@
 const defaultState = {
     login: false
-  };
+};
   
-  const reducer = (state = defaultState, action) => {
+const reducer = (state = defaultState, action) => {
     if(action.type === 'LOGIN'){
-      return state={login:true}
+        return state={login:true}
     } else {
-      return state;
+        return state;
     }
-  };
-  
-  const store = Redux.createStore(reducer);
-  
-  const loginAction = () => {
+};
+
+const store = Redux.createStore(reducer);
+
+const loginAction = () => {
     return {
-      type: 'LOGIN'
+        type: 'LOGIN'
     }
-  };
+};
