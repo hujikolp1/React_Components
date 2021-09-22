@@ -7,5 +7,7 @@ const loginAction = () => {
       type: 'LOGIN'
     }
 };
-  
+
+
+// initiate store mutation with dispatch
 store.dispatch(loginAction());
