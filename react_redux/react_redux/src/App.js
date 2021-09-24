@@ -1,22 +1,38 @@
+import Redux, { Provider } from 'react-redux'; 
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  //------------------------------------------
+
+  const ADD = 'ADD'; 
+  const addMessage = (message) => {
+    return {
+      type: ADD,
+      message: message 
+    }
+  }
+
+const messageReducer = (state=[],action) => {
+  switch (action.type) {
+    case ADD:
+      return [...state, action.message]
+    default:
+      return state 
+  }
+}
+
+var store = Redux.createStore(messageReducer);
+
+//------------------------------------------
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        redux app in the works 
       </header>
     </div>
   );
