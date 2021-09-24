@@ -5,9 +5,11 @@ find_device/find_device/node_modules
 lift_up_state/lift_up_state/node_modules
 async_data_render/async_data_render/node_modules
 prop_validation/prop_validation/node_modules
-navroutes/navroutes/node_modules
+nav_routes/nav_routes/node_modules
 lazycomps/lazycomps/node_modules
-react_server/react_server/node_modules
+server_react/server_react/node_modules
 ui_comps/ui_comps/node_modules
-redux_boiler/redux_boiler/node_modules
+ts_redux_boiler/ts_redux_boiler/node_modules
+react_redux/react_redux/node_modules
+
 

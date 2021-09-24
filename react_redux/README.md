@@ -10,7 +10,7 @@
 
 ### Reducers
 Reducers are pure functions (they only return output based on input, without altering the state or memory of the input). <br>
-Redcuers take in state and action and return the new state. 
+Redcuers take in state and action and return the new state. In this way state is immutable. 
 
 ### Actions 
 Actions are objects that have 'type' keys and values for the type of action. Action Creators are functions that return the appropriate action object. 
