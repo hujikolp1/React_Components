@@ -1,4 +1,6 @@
-import Redux, { Provider } from 'react-redux'; 
+import { Provider } from 'react-redux'; 
+import { createStore } from 'redux';
+import DisplayMessages from './components/DisplayMessages';
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,7 +25,7 @@ const messageReducer = (state=[],action) => {
   }
 }
 
-var store = Redux.createStore(messageReducer);
+var store = createStore(messageReducer);
 
 //------------------------------------------
 
@@ -31,9 +33,11 @@ var store = Redux.createStore(messageReducer);
 
   return (
     <div className="App">
-      <header className="App-header">
-        redux app in the works 
-      </header>
+
+      <Provider store={store}>
+        <DisplayMessages></DisplayMessages> 
+      </Provider> 
+
     </div>
   );
 }
