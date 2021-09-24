@@ -4,9 +4,10 @@ class DisplayMessages extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        input: '',
-        messages: []
+        input: ''
       }
+      this.handleChange = this.handleChange.bind(this);
+      this.submitMessage = this.submitMessage.bind(this);
     }
     handleChange = (e) => {
       e.preventDefault();
@@ -14,11 +15,11 @@ class DisplayMessages extends React.Component {
       console.log('placeholder => ', placeholder)
       this.setState({input: placeholder})
     }
-    submitMessage = () => {
-        this.setState({
-          input: '', 
-        messages: [...this.state.messages, this.state.input]
-      });
+    submitMessage() {
+      this.props.submitNewMessage(this.state.input)
+      this.setState((state) => ({
+        input: ''
+      }));
     }
   
     render() {
@@ -28,8 +29,8 @@ class DisplayMessages extends React.Component {
           <input onChange={this.handleChange} value={this.state.input} /> 
           <button onClick={this.submitMessage}>Add message</button> 
           <ul>
-            {this.state.messages.map((i)=>{
-              return <li>{i}</li>
+            {this.props.messages.map((msg, id)=>{
+              return <li key={id}>{msg}</li>
             })}
           </ul>
         </div>
