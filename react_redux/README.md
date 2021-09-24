@@ -1,4 +1,5 @@
 # React Redux Boilers
+This repo is for all things React Redux. 
 
 ### Redux Patterns 
 * ```action = {type:'LOGIN'}```
@@ -23,6 +24,45 @@ Dispatching sends an Action Creator function to the store so the state may be mu
 
 ### Get State
 To get the current state of the Redux Store, you can use the store.getState() method. 
+
+### More Complex Reducers 
+It is common to have control flow logic or switch statements in your reducer to handle various scenarios. For example, your reducer might look like this: <br> 
+```
+const reducer = (state = {}, action) => {
+    if(action.type === 'LOGIN'){
+        return state={login:true}
+    } else {
+        return state;
+    }
+};
+```
+or <br>
+```
+const authReducer = (state = defaultState, action) => {
+    switch(action.type){
+        case 'LOGIN':
+            return state={authenticated:true}
+        case 'LOGOUT':
+            return state={authenticated:false}
+        default:
+            return state 
+    }
+};
+```
+### Asynchronous Redux
+Often you will need to await data from an outside API in your reducer for things like login or posting messages. Redux Thunk handles this: <br>
+```
+Redux.applyMiddleware(ReduxThunk.default)
+```
+
+### Multiple Reducers 
+Redux Store only takes one reducer argument, so multiple reducers can be combined into one function: <br> 
+```
+const rootReducer = Redux.combineReducers({
+    count: counterReducer,
+    auth: authReducer 
+})
+```
 
 
 

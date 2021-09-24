@@ -5,11 +5,15 @@
 const REQUESTING_DATA = 'REQUESTING_DATA'
 const RECEIVED_DATA = 'RECEIVED_DATA'
 
-const requestingData = () => { return {type: REQUESTING_DATA} }
-const receivedData = (data) => { return {type: RECEIVED_DATA, users: data.users} }
+const requestingData = () => { 
+    return {type: REQUESTING_DATA} 
+}
+const receivedData = (data) => { 
+    return {type: RECEIVED_DATA, users: data.users} 
+}
 
 const handleAsync = () => {
-  return function(dispatch) {
+  return (dispatch) => {
     // Dispatch Request
     dispatch(requestingData())
     setTimeout(function() {
