@@ -1,7 +1,6 @@
-import { Provider } from 'react-redux'; 
+import { Provider, connect } from 'react-redux'; 
 import { createStore } from 'redux';
 import DisplayMessages from './components/DisplayMessages';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -42,6 +41,9 @@ const messageReducer = (state=[],action) => {
 
 var store = createStore(messageReducer);
 
+const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages)
+
+
 //------------------------------------------
 
 
@@ -56,5 +58,6 @@ var store = createStore(messageReducer);
     </div>
   );
 }
+
 
 export default App;
