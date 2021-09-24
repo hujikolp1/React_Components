@@ -16,12 +16,18 @@ function App() {
       message: message 
     }
   }
-  
+
   const mapDispatchToProps = (dispatch) => {
     return {
       submitNewMessage: (message)=>{
         dispatch(addMessage(message))
       }
+    }
+  }
+
+  const mapStateToProps = (state) => {
+    return {
+      messages: state
     }
   }
 
