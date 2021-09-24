@@ -30,19 +30,23 @@ function App() {
     }
   }
 
-const messageReducer = (state=[],action) => {
-  switch (action.type) {
-    case ADD:
-      return [...state, action.message]
-    default:
-      return state 
-  }
-}
+  const messageReducer = (state = [], action) => {
+    switch (action.type) {
+      case ADD:
+        return [
+          ...state,
+          action.message
+        ];
+      default:
+        return state;
+    }
+  };
 
-var store = createStore(messageReducer);
+  var store = createStore(messageReducer);
 
-const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages)
+  const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages)
 
+  
 
 //------------------------------------------
 
