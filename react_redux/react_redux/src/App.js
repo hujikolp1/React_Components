@@ -42,8 +42,10 @@ function App() {
     }
   };
 
+  // create Redux store
   var store = createStore(messageReducer);
 
+  // connect DisplayMessages component
   const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages)
 
   
@@ -57,7 +59,7 @@ function App() {
     <div className="App">
 
       <Provider store={store}>
-        <DisplayMessages></DisplayMessages> 
+        <ConnectedComponent></ConnectedComponent> 
       </Provider> 
 
     </div>
